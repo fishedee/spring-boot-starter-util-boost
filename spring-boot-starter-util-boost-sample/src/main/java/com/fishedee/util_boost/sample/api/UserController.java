@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping("/checkUser")
-    public User checkUser(User user){
+    public UserDTO checkUser(UserDTO user){
         return user;
     }
 }
