@@ -9,6 +9,9 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.annotation.PostConstruct;
+import java.util.TimeZone;
+
 /**
  * Hello world!
  *
@@ -29,5 +32,12 @@ public class App
     public static void main( String[] args )
     {
         SpringApplication.run(App.class,args);
+    }
+
+    @PostConstruct
+    void started()
+    {
+        //设置时区
+        TimeZone.setDefault(TimeZone.getTimeZone("Asia/Shanghai"));
     }
 }

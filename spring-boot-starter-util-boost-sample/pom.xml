@@ -4,7 +4,7 @@
 
   <groupId>com.fishedee.util_boost</groupId>
   <artifactId>spring-boot-starter-util-boost-sample</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <packaging>jar</packaging>
 
   <name>spring-boot-starter-util-boost-sample</name>
@@ -42,12 +42,12 @@
     <dependency>
       <groupId>com.github.fishedee</groupId>
       <artifactId>spring-boot-starter-web-boost</artifactId>
-      <version>1.0</version>
+      <version>1.1</version>
     </dependency>
     <dependency>
       <groupId>com.github.fishedee</groupId>
       <artifactId>spring-boot-starter-security-boost</artifactId>
-      <version>1.0</version>
+      <version>1.2</version>
     </dependency>
     <dependency>
       <groupId>com.h2database</groupId>
@@ -62,7 +62,7 @@
     <dependency>
       <groupId>com.fishedee.util_boost</groupId>
       <artifactId>spring-boot-starter-util-boost</artifactId>
-      <version>1.0</version>
+      <version>1.1</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

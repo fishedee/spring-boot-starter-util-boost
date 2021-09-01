@@ -1,8 +1,7 @@
-package com.fishedee.util_boost.sample;
+package com.fishedee.util_boost.web;
 
 import com.fishedee.id_generator.IdGeneratorException;
 import com.fishedee.jpa_boost.JPABoostException;
-import com.fishedee.util_boost.web.UtilBoostExceptionAdvice;
 import com.fishedee.web_boost.LogTimeHandlerInterceptor;
 import com.fishedee.web_boost.WebBoostExceptionAdvice;
 import com.fishedee.web_boost.WebBoostResponseAdvice;
@@ -14,8 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.ValidationException;
 
-@ControllerAdvice
-public class WebExceptionAdvice extends UtilBoostExceptionAdvice {
+public class UtilBoostExceptionAdvice extends WebBoostExceptionAdvice {
     //自定义异常的拦截返回
     @ExceptionHandler(JPABoostException.class)
     @ResponseBody

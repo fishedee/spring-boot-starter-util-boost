@@ -9,7 +9,7 @@ create table id_generator_config(
 
 insert into id_generator_config(`key`,template,step,initial_value) values
 ('user.user','{id}',10,1000),
-('order.sales_order','XSDD{year}{month}{day}{id:8}',10,'0');
+('category.category','CT{year}{month}{day}{id:8}',10,'0');
 
 create table user(
     id integer not null auto_increment,
@@ -19,6 +19,15 @@ create table user(
     remark varchar(255) not null,
     is_enabled integer not null,
     primary key( id )
+);
+
+create table category(
+     id char(32) not null auto_increment,
+     name char(32) not null,
+     remark varchar(255) not null,
+     create_time datetime not null,
+     modify_time datetime not null,
+     primary key( id )
 );
 
 create table persistent_logins(

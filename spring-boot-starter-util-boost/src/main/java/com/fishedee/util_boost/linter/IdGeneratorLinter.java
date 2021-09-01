@@ -17,12 +17,9 @@ public class IdGeneratorLinter implements JPALinter {
 
     @Override
     public void process(JPAWrapper bean){
-
-        log.info("lint pre {} {}",bean,bean.hasEntityAnnotation());
         if( bean.hasEntityAnnotation() == false ){
             return;
         }
-        log.info("lint process ",bean);
         try{
             this.check(bean.getClassName());
         }catch(Exception e ){
