@@ -39,4 +39,14 @@ public class UtilBoostAutoConfiguration {
     public JsonConfigure jsonConfigure() {
         return new JsonConfigure();
     }
+
+    //这里不能将IdGeneratorLinter加入bean，因为@EnableJPALint调用的时机比较早，这个时候的IdGeneratorLinter的bean还没来得及初始化，只能由用户手动注册bean
+    /*
+    @Bean
+    @ConditionalOnMissingBean(IdGeneratorLinter.class)
+    @ConditionalOnProperty(value = "spring.util-boost.enable", havingValue = "true")
+    public IdGeneratorLinter idGeneratorLinter() {
+        return new IdGeneratorLinter();
+    }
+     */
 }
