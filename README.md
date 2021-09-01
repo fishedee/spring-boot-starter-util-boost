@@ -9,6 +9,7 @@ SpringBoost的Util工具库，功能就比较杂乱了，包括有：
 * JsonConfiguration，做Json的默认配置工作
 * IdGeneratorLinter，配合id-generator做code linter检查
 * ValidatorUtil，在非Bean的类上做校验工作
+* CurdController，快速生成Curd的控制器
 
 ## 安装
 
@@ -23,7 +24,7 @@ SpringBoost的Util工具库，功能就比较杂乱了，包括有：
 <dependency>
     <groupId>com.github.fishedee</groupId>
     <artifactId>spring-boot-starter-util-boost</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 
