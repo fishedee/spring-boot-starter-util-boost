@@ -13,10 +13,12 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by fish on 2021/4/28.
  */
+//该IocHelper不支持@Autowired(required=false)的设计，如果@Autowired中找不到这个bean，那肯定会报错
 @Slf4j
 public class IocHelper {
-    public interface IocBeanFactory{
+    public interface IocHelperFactory {
         Object getBean(Class beanClass);
+        Object getBean(String name);
     }
 
     private static class ObjectInfo{
@@ -86,14 +88,14 @@ public class IocHelper {
         }
     }
 
-    private static IocBeanFactory beanFactory;
+    private static IocHelperFactory beanFactory;
 
     private static ConcurrentHashMap<Class,ObjectInfo> objectInfoMap = new ConcurrentHashMap<>();
 
     public static void autoInject(Object target){
         //工厂不在的话,就不用说了
         if(beanFactory == null){
-            return;
+            throw new RuntimeException("Ioc helper could not found bean factory");
         }
 
         //获取对象信息
@@ -115,19 +117,27 @@ public class IocHelper {
 
     public static Object getBean(Class clazz){
         //spring工厂
-        if(beanFactory == null) {
-            return null;
+        if(beanFactory == null){
+            throw new RuntimeException("Ioc helper could not found bean factory");
         }
 
         //都没有
         return IocHelper.beanFactory.getBean(clazz);
     }
 
-    public static void setBeanFactory(IocBeanFactory factory){
+    public static Object getBean(String beanName){
+        //spring工厂
+        if(beanFactory == null){
+            throw new RuntimeException("Ioc helper could not found bean factory");
+        }
+        return IocHelper.beanFactory.getBean(beanName);
+    }
+
+    public static void setBeanFactory(IocHelperFactory factory){
         IocHelper.beanFactory = factory;
     }
 
-    public static IocBeanFactory getBeanFactory(){
+    public static IocHelperFactory getBeanFactory(){
         return beanFactory;
     }
 }

@@ -19,12 +19,7 @@ import java.util.TimeZone;
 @SpringBootApplication
 @EnableTransactionManagement(proxyTargetClass = true)
 @EnableAspectJAutoProxy(exposeProxy = true)
-@EnableJPALint(
-        allowIdHaveGeneratedValue = true,
-        extraLinters = {
-                MyLinter.class,
-        }
-)
+
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 public class App 
