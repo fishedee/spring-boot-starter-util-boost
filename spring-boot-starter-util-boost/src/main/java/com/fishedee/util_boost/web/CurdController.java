@@ -118,8 +118,8 @@ public class CurdController<EntityT,IdT extends Serializable,DtoT,FilterT extend
             log.info("{}",data.getClass());
             preAdd(data);
             EntityT entity = this.entityConstructor.newInstance(data);
-            postAdd(entity);
             this.curdRepository.add(entity);
+            postAdd(entity);
             return (IdT)entityGetIdMethod.invoke(entity);
         }catch(InvocationTargetException e ){
             throw (Exception) e.getCause();
@@ -139,8 +139,8 @@ public class CurdController<EntityT,IdT extends Serializable,DtoT,FilterT extend
         try{
             preMod(data,id);
             EntityT entity = this.curdRepository.get(id);
-            postMod(entity);
             this.entityModMethod.invoke(entity,data);
+            postMod(entity);
         }catch(InvocationTargetException e ){
             throw (Exception) e.getCause();
         }
@@ -158,7 +158,7 @@ public class CurdController<EntityT,IdT extends Serializable,DtoT,FilterT extend
     public void del(IdT id){
         preDel(id);
         EntityT entity = this.curdRepository.get(id);
-        postDel(entity);
         this.curdRepository.del(entity);
+        postDel(entity);
     }
 }
