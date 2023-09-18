@@ -4,7 +4,7 @@
 
   <groupId>com.fishedee.util_boost</groupId>
   <artifactId>spring-boot-starter-util-boost-sample</artifactId>
-  <version>1.4</version>
+  <version>1.5</version>
   <packaging>jar</packaging>
 
   <name>spring-boot-starter-util-boost-sample</name>
@@ -62,7 +62,7 @@
     <dependency>
       <groupId>com.fishedee.util_boost</groupId>
       <artifactId>spring-boot-starter-util-boost</artifactId>
-      <version>1.4</version>
+      <version>1.5</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

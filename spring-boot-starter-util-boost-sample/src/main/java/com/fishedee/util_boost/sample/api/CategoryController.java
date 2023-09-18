@@ -1,9 +1,9 @@
 package com.fishedee.util_boost.sample.api;
 
 import com.fishedee.jpa_boost.*;
-import com.fishedee.util_boost.annotation.TransactionalForWrite;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +54,7 @@ public class CategoryController{
     //POST请求 http://localhost:9191/category/add
     //{"name":"fish","remark":"a"}
     @PostMapping("add")
-    @TransactionalForWrite
+    @Transactional
     public void add(CategoryDTO dto){
         Category category = new Category(dto);
         this.categoryRepository.add(category);
@@ -63,14 +63,14 @@ public class CategoryController{
     //POST请求 http://localhost:9191/category/del
     //{"id":"CT2021090100000001"}
     @PostMapping("del")
-    @TransactionalForWrite
+    @Transactional
     public void del(String id){
         Category category = this.categoryRepository.get(id);
         this.categoryRepository.del(category);
     }
 
     @PostMapping("mod")
-    @TransactionalForWrite
+    @Transactional
     public void mod(String id,CategoryDTO dto){
         Category category = this.categoryRepository.get(id);
         category.mod(dto);

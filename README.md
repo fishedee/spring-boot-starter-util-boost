@@ -23,7 +23,7 @@ SpringBoost的Util工具库，功能就比较杂乱了，包括有：
 <dependency>
     <groupId>com.github.fishedee</groupId>
     <artifactId>spring-boot-starter-util-boost</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
 </dependency>
 ```
 
